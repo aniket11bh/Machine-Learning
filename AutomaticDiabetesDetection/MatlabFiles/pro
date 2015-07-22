@@ -1,0 +1,109 @@
+%% Initialization
+clear ; close all; clc
+%% ===============Part1 : Loading and visualizing data==========
+% This data contains 
+%1. Number of times pregnant 
+%2. Plasma glucose concentration a 2 hours in an oral glucose tolerance test 
+%3. Diastolic blood pressure (mm Hg) 
+%4. Triceps skin fold thickness (mm) 
+%5. 2-Hour serum insulin (mu U/ml) 
+%6. Body mass index (weight in kg/(height in m)^2) 
+%7. Diabetes pedigree function 
+%8. Age (years) 
+%9. Class variable (0 or 1) 
+
+fprintf('Loading and visualizing data..\n'); 
+M = load('pima-indians-diabetes.data.txt');
+
+%%================= USING SVM =========================
+project_svm(M);
+
+
+%%
+
+%Store the feature data in X and class result in Y
+%                 X = M(:,1:8);
+%                 Y = M(:,end);
+%                 [m n] = size(X);
+%                 index_t = find(Y==1);
+%                 index_f = find(Y==0);
+%                 x1 = X(index_t,:);
+%                 x2 = X(index_f,:);
+% 
+%                                     % plot the features 
+%                                      %features_plot(X);
+%                                     %plot the likelihood
+%                                      %plot_likelihood(x1,x2);
+% 
+%                                     %format bank
+%                                     %csvwrite('FM.dat',cov(X));
+%                                     %we're escaping feature extraction, evaluation and selection here.
+% 
+% 
+% 
+% 
+% 
+% 
+%                 fprintf('Program paused. Press enter to continue.\n');
+%                 pause;
+%% Part2 : Applying PCA
+%                     fprintf('Running pca on example dataset\n');
+% 
+%                     % doing mean normalization before applying pca
+%                     fprintf('data preprocessing\n');
+%                     [X_norm,mu, sigma] = featureNormalize(X);
+%                     [U ,S] = pca(X,Y);
+% finding the value of k
+
+%K = selk(S);
+ % select eigen values with highest k ..opp
+% running pca
+%                 K =3;
+%                 U_reduce = U(:,8-K:8); % u_reduced is a n x k matrix
+%                 Z = projectData(X,U_reduce,8-K); % Z is m x k dimensional vector
+%                 format bank
+%                 csvwrite('covZ.dat',cov(Z));
+%                 %plotData(Z, Y);
+%                 fprintf('Program paused. Press enter to continue.\n');
+%% Part2 : Applying Bayesian classifcation
+%Md1 = fitnav(X,Y);
+%p = fitnav(X,Y);
+%---
+%         prior_n = 500./768;
+%         priot_d = 1 - prior_n ;
+% 
+%         % likelihood probabilities 
+%         pd = fitdist(X,'Kernel')
+% 
+% 
+%         indices = crossvalind('Kfold',m,10);
+%         ---
+%         %cp = classperf(Y);
+%         ---
+%         accuracy  = 0.0;
+%         [mat, accuracy,post] = naive_bayes_predict(Z ,Y ,indices);
+%         %%Applying naive baye's classification
+% 
+%         sens = mat(1,1)./(mat(1,1) + mat(2,1));
+%         spec = mat(2,2)./(mat(2,2) + mat(1,2));
+%         i = 10.;
+%         fprintf('percentage accuracy is : %f\n',accuracy./i);
+%         fprintf('sensitivity of classifier is : %f\n',sens);
+%         fprintf('specificity of classifier is : %f\n',spec);
+%         fprintf('mean : %f and variance : %f for non-diabetic\n', mean(post(:,1)),var(post(:,1)));
+%         fprintf('mean : %f and variance : %f for diabetic\n', mean(post(:,2)),var(post(:,2)));
+%         -----
+%cp.ErrorRate
+
+%fprintf('error is ',qerror)
+
+%probability distribution of Random variable vector( feautre vector over the
+%classes) i.e, likelihood
+
+
+
+
+
+% finding the posterior probabilities 
+
+
